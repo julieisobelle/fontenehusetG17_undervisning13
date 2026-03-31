@@ -17,6 +17,10 @@ html {
   font-size: 10px;
 }
 
+main {
+  min-height: 100dvh;
+}
+
 body {
   margin: 0;
   font-size: 1.6rem;
@@ -29,10 +33,6 @@ body {
       "main      main       aside"
       "footer    footer     aside"
 
-}
-
-main {
-  min-height: 100dvh;
 }
 
 h1,
@@ -96,6 +96,15 @@ img {
   grid-area: aside;
 }
 
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr); /* Med -columns er dette "automatisk" */
+  justify-items: center;
+  gap: 1.6rem;
+  place-items: center;
+}
+
 .projectCard {
   width: 30rem;
   border: 1px solid var(--darkColor);
@@ -149,6 +158,10 @@ img {
   .main {
   }
 
+  .projects {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   /* FOOTER */
   .footer {
   }
@@ -160,5 +173,9 @@ img {
         "header header"
         "main aside"
         "footer footer";
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
