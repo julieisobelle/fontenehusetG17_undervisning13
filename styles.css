@@ -22,10 +22,17 @@ body {
   font-size: 1.6rem;
   font-family: var(--defaultFontFamily);
   color: var(--darkColor);
+
+  display: grid;
+  grid-template-areas:
+      "header    header     header"
+      "main      main       aside"
+      "footer    footer     aside"
+
 }
 
 main {
-  height: 100dvh;
+  min-height: 100dvh;
 }
 
 h1,
@@ -49,6 +56,7 @@ img {
   justify-content: space-between;
   align-items: baseline;
   padding: 0 1.6rem; /* For å få ramme rundt */
+  grid-area: header;
 }
 
 .navList {
@@ -78,12 +86,20 @@ img {
 }
 
 /* MAIN */
-main {
+.main {
   background-color: #5f506b;
+  grid-area: main;
 }
 
 .aside {
   background-color: #76949f;
+  grid-area: aside;
+}
+
+.projectCard {
+  width: 30rem;
+  border: 1px solid var(--darkColor);
+  background-color: var(--accentPrimColor);
 }
 
 /* FOOTER */
@@ -93,6 +109,7 @@ main {
   font-size: 1.6rem;
   font-weight: bold;
   padding: 0 1.6rem; /* For å få ramme rundt */
+  grid-area: footer;
 }
 
 /* MEDIA QUERY */
@@ -122,10 +139,26 @@ main {
   }
 
   /* MAIN */
+  body {
+    grid-template-areas: 
+        "header"
+        "aside"
+        "main"
+        "footer";
+  }
   .main {
   }
 
   /* FOOTER */
   .footer {
+  }
+}
+
+@media (min-width: 427px) and (max-width: 1023px) {
+  body {
+    grid-template-areas:
+        "header header"
+        "main aside"
+        "footer footer";
   }
 }
